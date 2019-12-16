@@ -6,8 +6,6 @@ import ListItem from '../ListItem';
 import { IListProps } from './types';
 
 const List: React.FC<IListProps> = ({ images, onPress }) => {
-  console.log(images);
-  
   return (
     <ScrollView
       contentContainerStyle={styles.container}

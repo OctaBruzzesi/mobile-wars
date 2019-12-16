@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput, NativeSyntheticEvent } from 'react-native';
 import _ from 'underscore';
 
-import { getData, setData } from '../../../helpers/storage';
+import { getData, removeData, setData } from '../../../helpers/storage';
 import { IDetailProps } from './types';
 
 const favouriteFilledIcon = require('../../../assets/favourite.png');
@@ -30,9 +30,18 @@ const Detail: React.FC<IDetailProps> = ({ navigation }) => {
     setFavourite(true);
   };
 
+  const removeFavourite = () => {
+    removeData({ unsplash, desc });
+    setFavourite(false);
+  };
+
   const onFavourite = () => {
-    addFavourite();
-  }
+    if (isFavourite) {
+      removeFavourite();
+    } else {
+      addFavourite();
+    }
+  };
 
   return (
     <View style={styles.container}>
