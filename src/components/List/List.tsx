@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
 import ListItem from '../ListItem';
 import { IListProps } from './types';
+import ThemeContext, { ThemeConstants } from '../../context/theme';
 
 const List: React.FC<IListProps> = ({ images, onPress }) => {
+  const theme = useContext(ThemeContext);
+
+  const getBackgroundColor = () => {
+    const backgroundColor = ThemeConstants[theme.themeValue].backgroundColor;
+    return { backgroundColor };
+  };
+
   return (
     <ScrollView
-      contentContainerStyle={styles.container}
+      contentContainerStyle={[styles.container, getBackgroundColor()]}
       contentInsetAdjustmentBehavior="automatic"
     >
       <View style={[styles.itemContainer, { paddingRight: 8 }]}>
@@ -41,7 +49,6 @@ const List: React.FC<IListProps> = ({ images, onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#303030',
     flexDirection: 'row',
     paddingTop: 24,
     paddingLeft: 16,

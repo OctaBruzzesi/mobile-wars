@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect, useContext } from 'react';
 import { toJson } from 'unsplash-js';
 
 import unsplash from '../../helpers/unsplash/unsplash';
@@ -7,8 +7,9 @@ import List from '../../components/List';
 
 const Explore: React.FC<IExploreProps> = ({ navigation }) => {
   const [images, setImages] = useState<Array<IUnsplash>>([]);
+
   useEffect(() => {
-    unsplash.search.photos('dog')
+    unsplash.search.photos('star wars')
     .then(toJson)
     .then(json => setImages(getUnsplashDataFormated(json.results)));
   }, []);
