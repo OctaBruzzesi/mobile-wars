@@ -28,13 +28,13 @@ const App: React.FC<{}> = () => {
       <View style={{ backgroundColor: '#303030', flex: 1 }}>
         <StatusBar barStyle="dark-content" />
         <AppNav theme={theme === 'other' ? 'dark' : theme} />
-        <TouchableOpacity style={{ height: 98, justifyContent: 'center' }} onPress={handleTheme}>
+        {/* <TouchableOpacity style={{ height: 98, justifyContent: 'center' }} onPress={handleTheme}>
           <Text
             style={{ textAlign: 'center', color: 'white' }}
           >
             Change Theme
           </Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </ThemeContext.Provider>
   );
