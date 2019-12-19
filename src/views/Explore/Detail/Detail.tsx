@@ -91,6 +91,7 @@ const Detail: React.FC<IDetailProps> = ({ navigation }) => {
       </View>
       <View style={{ alignSelf: 'stretch', flex: 1 }}>
         <TextInput
+          editable={!isFavourite}
           onChangeText={value => setDesc(value)}
           placeholder="Description"
           placeholderTextColor={ThemeConstants[theme.themeValue].fontColor}

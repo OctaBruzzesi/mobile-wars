@@ -9,6 +9,7 @@ import { IFavouritesProps } from './types';
 
 const Favourites: React.FC<IFavouritesProps> = ({ navigation }) => {
   const [images, setImages] = useState<Array<Favourite>>([]);
+  
   useEffect(() => {
     getData()
     .then(data => setImages(data));

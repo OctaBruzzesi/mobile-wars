@@ -45,7 +45,6 @@ const Application = createBottomTabNavigator({
   Favourites: {
     screen: FavouritesTab,
     navigationOptions: {
-      title: 'Favorites',
       tabBarIcon: <Icon source={favourite} />
     },
   },
